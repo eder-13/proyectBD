@@ -14,6 +14,9 @@
       if (mysqli_affected_rows($conexion)>0) {
         header("Location: main.php");
       }
+      else{
+        die("Error: ".mysqli_connect_error($conexion));
+      }
 
     }
 ?>
@@ -37,7 +40,7 @@
           -ms-user-select: none;
           user-select: none;
         }
-  
+
         @media (min-width: 768px) {
           .bd-placeholder-img-lg {
             font-size: 3.5rem;
