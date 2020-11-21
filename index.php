@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="styles/bootstrap.css">
     <style>
         .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
-  
+
         @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
         }
-      </style>
-      <link rel="stylesheet" href="styles/cover.css">
+    </style>
+    <link rel="stylesheet" href="styles/cover.css">
 </head>
 
 
@@ -41,7 +41,8 @@
 
         <main role="main" class="inner cover">
             <h1 class="cover-heading">Control your staff and more.</h1>
-            <p class="lead">Project6 is an application that allows you to have fully control over your staff and make better and faster the payment's proccess. Forget about calculators using Project6!</p>
+            <p class="lead">Project6 is an application that allows you to have fully control over your staff and make
+                better and faster the payment's proccess. Forget about calculators using Project6!</p>
             <p class="lead">
                 <a href="signin.php" class="btn btn-lg btn-secondary">Sign In</a>
             </p>
@@ -50,14 +51,14 @@
         <footer class="mastfoot mt-auto">
             <div class="inner">
                 <p>&copy; Proyect6 - 2020</p>
-                <p>Author: <a href="#" class = "text-secondary">Ernesto D. Escariz Ramos</a></p>
+                <p>Author: <a href="#" class="text-secondary">Ernesto D. Escariz Ramos</a></p>
             </div>
         </footer>
     </div>
 
 
 
-        <?php include("footer.php")?>
+    <?php include("footer.php")?>
 </body>
 
 </html>
