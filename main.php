@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if (!isset($_POST["username"])) {
+    header("Location: signin.php");
+  }
+?>
 <!doctype html>
 <html lang="en">
 

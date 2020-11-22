@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if (!isset($_SESSION["username"])) {
+      header("Location: signin.php");
+    }
     if (isset($_POST["submit"])) {
       $conexion = mysqli_connect("localhost","root","","mysql");
       if (!$conexion) {

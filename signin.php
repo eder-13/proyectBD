@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if (isset($_SESSION["username"])) {
+      header("Location: main.php");
+    }
     if (isset($_POST["submit"])) {
       $conexion = mysqli_connect("localhost","project6","project6","mysql");
       if (!$conexion) {
@@ -12,9 +16,12 @@
    
       $res = mysqli_query($conexion,$query);
       if (mysqli_affected_rows($conexion)>0) {
+        
+        $_SESSION["username"] = $user;
+        $_SESSION["password"] = $pass;
         header("Location: main.php");
       }
-      else{
+      else {
         die("Error: ".mysqli_connect_error($conexion));
       }
 
