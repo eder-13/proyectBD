@@ -15,14 +15,13 @@
       $query = "SELECT * from user where Password = PASSWORD('$pass') AND User = '$user'";
    
       $res = mysqli_query($conexion,$query);
-      if (mysqli_affected_rows($conexion)>0) {
-        
+      if (mysqli_affected_rows($conexion) > 0) {
         $_SESSION["username"] = $user;
         $_SESSION["password"] = $pass;
         header("Location: main.php");
       }
       else {
-        die("Error: ".mysqli_connect_error($conexion));
+        $message = "Wrong password or user!";
       }
 
     }
@@ -62,6 +61,11 @@
 <body class="text-center">
   <form class="form-signin" method="POST" action="signin.php">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <?php
+        if (isset($message)) {
+    ?>          <p class="text-danger"><?php echo $message; ?></p>
+    <?php    }
+    ?>
     <label for="inputEmail" class="sr-only">Username</label>
     <input type="text" id="inputText" class="form-control" placeholder="User" name="username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>

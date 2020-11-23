@@ -85,6 +85,7 @@
                 AND date.ind = "X"
                 AND trabajo.date BETWEEN @fechaI AND @fechaF
                 AND trabajo.date <> obrero.birth
+                AND trabajo.min < 480
         GROUP BY obrero.nroCuenta
 
         UNION 
@@ -93,10 +94,11 @@
         SELECT obrero.CodB,obrero.nroCuenta,obrero.nameO,obrero.lastnameO, 8*(turno.costoT + (0.5 * turno.costoT) ) - (trabajo.min * (turno.costoT + 0.5 * turno.costoT)/20) AS MONTO2
         FROM obrero,trabajo,date,turno
         WHERE trabajo.CodO = obrero.CodO
-        AND trabajo.date = date.date
-        AND trabajo.CodT = turno.CodT
-        AND trabajo.date BETWEEN @fechaI AND @fechaF
-        AND date.ind <> "X"
+                AND trabajo.date = date.date
+                AND trabajo.CodT = turno.CodT
+                AND trabajo.date BETWEEN @fechaI AND @fechaF
+                AND date.ind <> "X"
+                AND trabajo.min < 480
         GROUP BY obrero.nroCuenta
 
         UNION 
@@ -126,7 +128,7 @@
         SET @fechaF = DATE_ADD(@fechaI, INTERVAL 6 DAY );
 
         #general SELECT 
-        SELECT CodB,nroCuenta,nameO,lastnameO,@fechaI , @fechaF , SUM(MONTO) 
+        SELECT CodO,nameO,lastnameO,@fechaI , @fechaF , SUM(MONTO) 
         FROM (
 
         #regular day
@@ -138,6 +140,7 @@
                 AND trabajo.horasExtras = horasextras.cantHExtra
                 AND trabajo.date = date.date
                 AND date.ind = "X"
+                AND trabajo.min < 480
                 AND trabajo.date BETWEEN @fechaI AND @fechaF
                 AND trabajo.date <> obrero.birth
         GROUP BY obrero.nroCuenta
@@ -148,10 +151,11 @@
         SELECT obrero.CodO,obrero.nameO,obrero.lastnameO, 8*(turno.costoT + (0.5 * turno.costoT) ) - (trabajo.min * (turno.costoT + 0.5 * turno.costoT)/20) AS MONTO2
         FROM obrero,trabajo,date,turno
         WHERE trabajo.CodO = obrero.CodO
-        AND trabajo.date = date.date
-        AND trabajo.CodT = turno.CodT
-        AND trabajo.date BETWEEN @fechaI AND @fechaF
-        AND date.ind <> "X"
+                AND trabajo.date = date.date
+                AND trabajo.CodT = turno.CodT
+                AND trabajo.date BETWEEN @fechaI AND @fechaF
+                AND date.ind <> "X"
+                AND trabajo.min < 480
         GROUP BY obrero.nroCuenta
 
         UNION 
@@ -195,6 +199,7 @@
                 AND trabajo.date <> obrero.birth
                 AND obrero.CodA = area.CodA
                 AND area.CodCC = centroc.CodCC
+                AND trabajo.min < 480
         GROUP BY area.CodA
 
         UNION 
@@ -209,6 +214,7 @@
                 AND date.ind <> "X"
                 AND obrero.CodA = area.CodA
                 AND area.CodCC = centroc.CodCC
+                AND trabajo.min < 480
         GROUP BY area.CodA
 
         UNION 

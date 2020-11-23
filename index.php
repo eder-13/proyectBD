@@ -51,7 +51,7 @@
         <footer class="mastfoot mt-auto">
             <div class="inner">
                 <p>&copy; Proyect6 - 2020</p>
-                <p>Author: <a href="#" class="text-secondary">Ernesto D. Escariz Ramos</a></p>
+                <p>Author: <span class="text-secondary">Ernesto D. Escariz Ramos</span></p>
             </div>
         </footer>
     </div>

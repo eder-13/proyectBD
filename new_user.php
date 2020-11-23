@@ -4,7 +4,7 @@
       header("Location: signin.php");
     }
     if (isset($_POST["submit"])) {
-      $conexion = mysqli_connect("localhost","root","","mysql");
+      $conexion = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"mysql");
       if (!$conexion) {
         die("Error: ".mysqli_connect_error($conexion));
       }
